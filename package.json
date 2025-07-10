@@ -1,5 +1,5 @@
 {
-  "name": "ahj_4_credit_card_validator",
+  "name": "e2e",
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
@@ -11,8 +11,8 @@
     "show:coverage": "live-server coverage/lcov-report",
     "show:dist": "live-server dist"
   },
-  "repository": "https://github.com/Maksim-Gavr-04/ahj_4_credit_card_validator",
-  "author": "Maksim-Gavr-04",
+  "repository": "https://github.com/kiotobat/e2e",
+  "author": "Spartak",
   "license": "MIT",
   "dependencies": {
     "core-js": "3"
