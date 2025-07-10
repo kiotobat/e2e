@@ -76,7 +76,18 @@ export default class CardWidget {
   onInput() {
     this.message.textContent = '';
     this.message.className = 'card-validator-message';
-    this.paymentSystemImages.forEach(image => image.classList.remove('not-suitable'));
+    const cardNumber = this.input.value.replace(/\s/g, '');
+    let paymentSystem = 'unknown';
+    if (cardNumber.length >= 2) {
+      paymentSystem = definitionOfPaymentSystem(cardNumber);
+    }
+    this.paymentSystemImages.forEach(image => {
+      if (paymentSystem !== 'unknown' && image.classList.contains(paymentSystem)) {
+        image.classList.remove('not-suitable');
+      } else {
+        image.classList.add('not-suitable');
+      }
+    });
   }
 
   validationAndDefinition() {
