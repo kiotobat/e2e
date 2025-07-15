@@ -1,10 +1,6 @@
-// TODO: write code here
+import BankCardWidget from "../components/bank-card-widget/js/bank-card-widget";
 
-import CardWidget from '../components/card-validator-widget/CardWidget';
-
-document.addEventListener('DOMContentLoaded', () => {
-  const container = document.querySelector('.content');
-  const cardWidget = new CardWidget(container);
-
-  cardWidget.bindToDOM();
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.getElementsByTagName("body")[0];
+  new BankCardWidget(body);
 });

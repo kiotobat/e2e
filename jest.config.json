@@ -1,0 +1,4 @@
+{
+  "coveragePathIgnorePatterns": ["<rootDir>/task/", "<rootDir>/node_modules/"],
+  "testPathIgnorePatterns": ["<rootDir>/task/", "<rootDir>/node_modules/"]
+}
