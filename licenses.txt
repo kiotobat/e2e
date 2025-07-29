@@ -1,4 +1,4 @@
-Использованы бесплатные иконки:
+В проекте использованы следующие бесплатные иконки:
 
 Visa - https://ru.freepik.com/icon/card_11041038#fromView=search&page=1&position=0&uuid=4302611e-c3f1-41f6-8558-d806c8c17752
 MasterCard - https://ru.freepik.com/icon/card_11041055#fromView=resource_detail&position=5

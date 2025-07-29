@@ -11,8 +11,6 @@ export default class Validation {
 
   /**
    * Проверяет переданную строку на соответствие шаблонам (14, 15 или 16 цифр)
-   * @param {string} value
-   * @returns boolean
    */
   checkNumLength(value) {
     return this.regex1.test(value) || this.regex2.test(value) || this.regex3.test(value);
@@ -20,8 +18,6 @@ export default class Validation {
 
   /**
    * Проверка по алгоритму Луна
-   * @param {string} value
-   * @returns boolean
    */
   checkLuhnAlgo(value) {
     let sum = 0;
@@ -46,8 +42,6 @@ export default class Validation {
 
   /**
    * Проверяет переданное значение на наличие в объекте paySistem ключа с таким значением
-   * @param {string || number} value
-   * @returns false || или значение свойства name в объекте paySistem
    */
   checkPaySystem(value) {
     if (value) {

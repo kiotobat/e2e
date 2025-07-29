@@ -5,7 +5,7 @@ export default class WidgetStartPage {
 
   bindToDOM(container) {
     if (!(container instanceof HTMLElement)) {
-      throw new Error('container is not HTMLElement');
+      throw new Error('Контейнер не является HTMLElement');
     }
     this.container = container;
   }
@@ -18,9 +18,6 @@ export default class WidgetStartPage {
   static get markup() {
     return `<div class="validator__body">
     <div class="validator__content">
-      <div class="validator__tittle">
-        <h1>Валидатор карты</h1>
-      </div>
       <div class="validator__widget widget">
         <ul class="widget__list">
            <div class="widget__item_absolute">
@@ -48,11 +45,11 @@ export default class WidgetStartPage {
          </ul>
         <form class="widget__form">
           <div class="widget__row">
-            <input class="input" type="number" placeholder="Введите номер карты">
+            <input class="input" type="number" placeholder="Номер карты">
             <button class="button" type="submit">Проверить</button>
           </div>
           <div class="mes d_none">
-            <p class="text"></p>
+            <p class="text">Неправильный номер карты</p>
           </div>
         </form>
       </div>

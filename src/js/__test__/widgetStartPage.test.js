@@ -6,11 +6,11 @@ describe('Проверка отрисовки стартовой страниц�
   widget.bindToDOM(document.querySelector('.validator'));
   widget.drawUI();
 
-  test('Test 1', () => {
+  test('Тест 1', () => {
     expect(widget.container.innerHTML).toEqual(WidgetStartPage.markup);
   });
 
-  test('Test 2', () => {
+  test('Тест 2', () => {
     expect(document.querySelector('.validator').children[0].className).toBe('validator__body');
     expect(document.querySelector('.validator').children[0].children[0].className).toBe('validator__content');
     expect(document.querySelector('.validator__content').children[0].className).toBe('validator__tittle');
@@ -21,8 +21,8 @@ describe('Проверка отрисовки стартовой страниц�
     expect(document.forms[0].elements.length).toBe(2);
   });
 
-  test('Test 3', () => {
+  test('Тест 3', () => {
     widget.container = null;
-    expect(() => widget.checkBinding()).toThrowError(new Error('Widget is not bind to DOM'));
+    expect(() => widget.checkBinding()).toThrowError(new Error('Контейнер не является HTMLElement'));
   });
 });

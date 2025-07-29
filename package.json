@@ -47,6 +47,7 @@
     "webpack-merge": "^6.0.1"
   },
   "dependencies": {
-    "core-js": "^3.44.0"
+    "core-js": "^3.44.0",
+    "puppeteer": "^24.15.0"
   }
 }

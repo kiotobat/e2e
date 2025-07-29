@@ -33,13 +33,13 @@ describe('Метод checkLuhnAlgo должен проверять переда�
 
 describe('checkPaySystem проверяет переданное значение на наличие в объекте paySistem ключа с таким значением', () => {
   test.each([
-    ['Test 1', 37, 'amex'],
-    ['Test 2', 30, 'diners'],
-    ['Test 3', 60, 'discover'],
-    ['Test 4', 35, 'jcb'],
-    ['Test 5', 51, 'mastercard'],
-    ['Test 6', 2, 'mir'],
-    ['Test 7', 4, 'visa'],
+    ['Тест 1', 37, 'amex'],
+    ['Тест 2', 30, 'diners'],
+    ['Тест 3', 60, 'discover'],
+    ['Тест 4', 35, 'jcb'],
+    ['Тест 5', 51, 'mastercard'],
+    ['Тест 6', 2, 'mir'],
+    ['Тест 7', 4, 'visa'],
   ])(('Если в %s передаём %d должен вернуть %s'), (_, input, expected) => {
     expect(validator.checkPaySystem(input)).toBe(expected);
   });

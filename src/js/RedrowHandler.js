@@ -28,11 +28,7 @@ export default class RedrowHandler {
   }
 
   /**
-   * Обработчик собыитя input, проверяет input по перым двум символам наличие
-   * в памяти платёжной системы, добавляет класс checked эл-ту widget__item и
-   * класс transparent всем эл-там widget__item_absolute
-   * которые отвечают за увеличение и прозрачность. При отсувствии платёжной системы в
-   * памяти, вызывает метод addMes и выводит сообщение.
+   * Обработчик собыитя input, проверяет input по перым двум символам наличии в памяти платёжной системы, добавляет класс checked эл-ту widget__item и класс transparent всем эл-там widget__item_absolute которые отвечают за увеличение и прозрачность. При отсувствии платёжной системы в памяти, вызывает метод addMes и выводит сообщение.
    */
   showPaySistem() {
     const sistName = this.input.value.length;
@@ -53,7 +49,6 @@ export default class RedrowHandler {
 
   /**
    * Обработчик собыитий keyup и click
-   * @param {*} event
    */
   inputHandler() {
     const { value } = this.input;
@@ -78,9 +73,6 @@ export default class RedrowHandler {
 
   /**
    * Находит полное название платежной системы в объекте paySistem
-   * @param {string} shortName значение свойства name объекта paySistem
-   * @param {Object} data объект хранящий данные пл. систем
-   * @returns string, значение свойства fullName в объекте paySistem
    */
   getFullName(shortName, data = this.paySistem) {
     const tmp = Object.values(data);
@@ -93,8 +85,7 @@ export default class RedrowHandler {
   }
 
   /**
-   * добавляет классы checked и transparent элементам карт
-   * @param {string} shortName название платежной системы
+   * Добавляет классы checked и transparent элементам карт
    */
   addCheckedTransparent(shortName) {
     this.widgetList.querySelector(`.${shortName}`).classList.add('checked');
@@ -113,8 +104,7 @@ export default class RedrowHandler {
   }
 
   /**
-   * @param {string} value
-   * @returns false || название платежной системы.
+   * @param {string} value, @returns false || название платежной системы.
    */
   getPaySistem(value) {
     const tmp = value.split('');
@@ -130,9 +120,6 @@ export default class RedrowHandler {
 
   /**
    * Выводит сообщение
-   * @param {string} text текст сообщения
-   * @param {string} cssClass css-класс, цвет текста сообщения
-   * @param {string} bgInput css-класс, фон блока input.
    */
   addMes(text, cssClass, bgInput) {
     this.mesText.textContent = text;
