@@ -1,17 +1,16 @@
-const Webpack = require('webpack');
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-extraneous-dependencies */
+// eslint-disable-next-line import/no-extraneous-dependencies
+const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('../webpack.dev');
-const PORT = 8087;
 
-const compiler = Webpack(config);
-const devServerOptions = {
- ...config.devServer, open: false, port: PORT
-};
-const server = new WebpackDevServer(devServerOptions, compiler);
-
-const runServer = async () => {
-  console.log('Starting server on port ' + PORT);
-  await server.start();
-};
-
-runServer();
+const server = new WebpackDevServer(webpack(config), {});
+server.listen(9000, 'localhost', (err) => {
+  if (err) {
+    return;
+  }
+  if (process.send) {
+    process.send('ok');
+  }
+});

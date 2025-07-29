@@ -1,6 +1,5 @@
-import BankCardWidget from "../components/bank-card-widget/js/bank-card-widget";
+import AppController from './AppController';
 
-document.addEventListener("DOMContentLoaded", () => {
-  const body = document.getElementsByTagName("body")[0];
-  new BankCardWidget(body);
-});
+const appController = new AppController();
+
+appController.init(document.querySelector('.validator'));
