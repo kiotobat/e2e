@@ -1,0 +1,46 @@
+.cards {
+  display: flex;
+  flex-wrap:wrap;
+  width: 345px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  opacity: 0.2;
+}
+
+.active {
+  opacity: 1;
+}
+
+.bank-card-widget-form {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.bank-card-widget-button {
+  background-color: rgb(6, 175, 6);
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  height: 35px;
+}
+
+.bank-card-widget-input {
+  height: 30px;
+  width: 250px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.valid {
+  background-color: rgb(83, 236, 83);
+}
+
+.invalid {
+  background-color: rgb(230, 141, 141);
+}
