@@ -1,9 +1,6 @@
 import Validation from "./Validation";
 
-/**
- * Класс отвечает за логику перерисовки DOM.
- */
-export default class RedrowHandler {
+export default class RedrawHandler {
   constructor(widget, dataSistem) {
     this.widget = widget;
     this.paySistem = dataSistem;
@@ -16,9 +13,6 @@ export default class RedrowHandler {
     this.button = this.widget.querySelector(".button");
   }
 
-  /**
-   * Подключает обработчиков событий
-   */
   toAppoint() {
     this.input.addEventListener("input", () => this.showPaySistem());
     this.form.addEventListener("submit", (event) => {
@@ -27,9 +21,6 @@ export default class RedrowHandler {
     });
   }
 
-  /**
-   * Обработчик собыитя input, проверяет input по перым двум символам наличии в памяти платёжной системы, добавляет класс checked эл-ту widget__item и класс transparent всем эл-там widget__item_absolute которые отвечают за увеличение и прозрачность. При отсувствии платёжной системы в памяти, вызывает метод addMes и выводит сообщение.
-   */
   showPaySistem() {
     const sistName = this.input.value.length;
     if (sistName === 2) {
@@ -51,9 +42,6 @@ export default class RedrowHandler {
     }
   }
 
-  /**
-   * Обработчик собыитий keyup и click
-   */
   inputHandler() {
     const { value } = this.input;
     if (this.getPaySistem(value)) {
@@ -86,9 +74,6 @@ export default class RedrowHandler {
     }
   }
 
-  /**
-   * Находит полное название платежной системы в объекте paySistem
-   */
   getFullName(shortName, data = this.paySistem) {
     const tmp = Object.values(data);
     const temp = tmp.find((e) => e.name === shortName);
@@ -99,9 +84,6 @@ export default class RedrowHandler {
     return "";
   }
 
-  /**
-   * Добавляет классы checked и transparent элементам карт
-   */
   addCheckedTransparent(shortName) {
     this.widgetList.querySelector(`.${shortName}`).classList.add("checked");
     this.widgetList.querySelectorAll(".widget__item").forEach((e) => {
@@ -109,18 +91,12 @@ export default class RedrowHandler {
     });
   }
 
-  /**
-   * Удаляет классы checked и transparent у элементов карт
-   */
   clean() {
     this.widgetList.querySelectorAll(".widget__item").forEach((e) => {
       e.classList.remove("checked", "transparent");
     });
   }
 
-  /**
-   * @param {string} value, @returns false || название платежной системы.
-   */
   getPaySistem(value) {
     const tmp = value.split("");
     const temp = tmp[0] + tmp[1];
@@ -136,9 +112,6 @@ export default class RedrowHandler {
     return false;
   }
 
-  /**
-   * Выводит сообщение
-   */
   addMes(text, cssClass, bgInput) {
     this.mesText.textContent = text;
     this.mesText.classList.add(cssClass);
@@ -146,9 +119,6 @@ export default class RedrowHandler {
     this.input.classList.add(bgInput);
   }
 
-  /**
-   * Удаляет сообщение
-   */
   removeMes() {
     this.mesText.textContent = "";
     this.mesText.className = "text";

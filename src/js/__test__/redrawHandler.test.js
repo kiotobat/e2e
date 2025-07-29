@@ -1,4 +1,4 @@
-import RedrowHandler from "../RedrowHandler";
+import RedrawHandler from "../RedrawHandler";
 import paySistem from "../paySistem";
 import WidgetStartPage from "../WidgetStartPage";
 
@@ -6,7 +6,7 @@ document.body.innerHTML = '<div class="validator"></div>';
 const widget = new WidgetStartPage();
 widget.bindToDOM(document.querySelector(".validator"));
 widget.drawUI();
-const handler = new RedrowHandler(widget.container, paySistem);
+const handler = new RedrawHandler(widget.container, paySistem);
 
 test("Метод addMes должен сгенерировать сообщение по переданным параметрам", () => {
   handler.addMes("Тестовое сообщение", "colorValid", "bgValid");

@@ -1,5 +1,5 @@
 import WidgetStartPage from "./WidgetStartPage";
-import RedrowHandler from "./RedrowHandler";
+import RedrawHandler from "./RedrawHandler";
 import paySistem from "./paySistem";
 
 export default class AppController {
@@ -7,7 +7,7 @@ export default class AppController {
     this.widget = new WidgetStartPage();
     this.widget.bindToDOM(container);
     this.widget.drawUI();
-    this.handler = new RedrowHandler(this.widget.container, paySistem);
+    this.handler = new RedrawHandler(this.widget.container, paySistem);
     this.handler.toAppoint();
   }
 }
