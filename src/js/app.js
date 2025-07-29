@@ -1,5 +1,5 @@
-import AppController from './AppController';
+import AppController from "./AppController";
 
 const appController = new AppController();
 
-appController.init(document.querySelector('.validator'));
+appController.init(document.querySelector(".validator"));

@@ -1,4 +1,4 @@
-import Validation from './Validation';
+import Validation from "./Validation";
 
 /**
  * Класс отвечает за логику перерисовки DOM.
@@ -7,21 +7,21 @@ export default class RedrowHandler {
   constructor(widget, dataSistem) {
     this.widget = widget;
     this.paySistem = dataSistem;
-    this.input = this.widget.querySelector('.input');
-    this.mes = this.widget.querySelector('.mes');
-    this.mesText = this.widget.querySelector('.text');
-    this.widgetList = this.widget.querySelector('.widget__list');
+    this.input = this.widget.querySelector(".input");
+    this.mes = this.widget.querySelector(".mes");
+    this.mesText = this.widget.querySelector(".text");
+    this.widgetList = this.widget.querySelector(".widget__list");
     this.validator = new Validation(this.paySistem);
-    this.form = this.widget.querySelector('.widget__form');
-    this.button = this.widget.querySelector('.button');
+    this.form = this.widget.querySelector(".widget__form");
+    this.button = this.widget.querySelector(".button");
   }
 
   /**
    * Подключает обработчиков событий
    */
   toAppoint() {
-    this.input.addEventListener('input', () => this.showPaySistem());
-    this.form.addEventListener('submit', (event) => {
+    this.input.addEventListener("input", () => this.showPaySistem());
+    this.form.addEventListener("submit", (event) => {
       event.preventDefault();
       this.inputHandler();
     });
@@ -38,7 +38,11 @@ export default class RedrowHandler {
         this.removeMes();
         this.addCheckedTransparent(name);
       } else {
-        this.addMes('the payment system was not found', 'colorInvalid', 'bgInvalid');
+        this.addMes(
+          "the payment system was not found",
+          "colorInvalid",
+          "bgInvalid",
+        );
       }
     }
     if (sistName < 2) {
@@ -53,21 +57,32 @@ export default class RedrowHandler {
   inputHandler() {
     const { value } = this.input;
     if (this.getPaySistem(value)) {
-      if (this.validator.checkNumLength(value) && this.validator.checkLuhnAlgo(value)) {
+      if (
+        this.validator.checkNumLength(value) &&
+        this.validator.checkLuhnAlgo(value)
+      ) {
         const shortName = this.getPaySistem(value);
         const fullName = this.getFullName(shortName);
         if (fullName) {
           this.clean();
           this.removeMes();
-          this.addMes(`The card is valid, the ${fullName} payment system`, 'colorValid', 'bgValid');
+          this.addMes(
+            `The card is valid, the ${fullName} payment system`,
+            "colorValid",
+            "bgValid",
+          );
           this.addCheckedTransparent(shortName);
         }
       } else {
-        this.addMes('The card is not valid', 'colorInvalid', 'bgInvalid');
+        this.addMes("The card is not valid", "colorInvalid", "bgInvalid");
         this.clean();
       }
     } else {
-      this.addMes('the payment system was not found', 'colorInvalid', 'bgInvalid');
+      this.addMes(
+        "the payment system was not found",
+        "colorInvalid",
+        "bgInvalid",
+      );
     }
   }
 
@@ -81,16 +96,16 @@ export default class RedrowHandler {
       this.fullName = temp.fullName;
       return this.fullName;
     }
-    return '';
+    return "";
   }
 
   /**
    * Добавляет классы checked и transparent элементам карт
    */
   addCheckedTransparent(shortName) {
-    this.widgetList.querySelector(`.${shortName}`).classList.add('checked');
-    this.widgetList.querySelectorAll('.widget__item').forEach((e) => {
-      e.classList.add('transparent');
+    this.widgetList.querySelector(`.${shortName}`).classList.add("checked");
+    this.widgetList.querySelectorAll(".widget__item").forEach((e) => {
+      e.classList.add("transparent");
     });
   }
 
@@ -98,8 +113,8 @@ export default class RedrowHandler {
    * Удаляет классы checked и transparent у элементов карт
    */
   clean() {
-    this.widgetList.querySelectorAll('.widget__item').forEach((e) => {
-      e.classList.remove('checked', 'transparent');
+    this.widgetList.querySelectorAll(".widget__item").forEach((e) => {
+      e.classList.remove("checked", "transparent");
     });
   }
 
@@ -107,13 +122,16 @@ export default class RedrowHandler {
    * @param {string} value, @returns false || название платежной системы.
    */
   getPaySistem(value) {
-    const tmp = value.split('');
+    const tmp = value.split("");
     const temp = tmp[0] + tmp[1];
     // console.log(tmp, temp);
     if (this.paySistem[tmp[0]] || this.paySistem[temp]) {
       // console.log(this.paySistem[tmp[0]], this.paySistem[temp]);
       // console.log(this.validator.checkPaySystem(tmp[0], this.validator.checkPaySystem(temp)));
-      return this.validator.checkPaySystem(tmp[0]) || this.validator.checkPaySystem(temp);
+      return (
+        this.validator.checkPaySystem(tmp[0]) ||
+        this.validator.checkPaySystem(temp)
+      );
     }
     return false;
   }
@@ -124,7 +142,7 @@ export default class RedrowHandler {
   addMes(text, cssClass, bgInput) {
     this.mesText.textContent = text;
     this.mesText.classList.add(cssClass);
-    this.mes.classList.remove('d_none');
+    this.mes.classList.remove("d_none");
     this.input.classList.add(bgInput);
   }
 
@@ -132,9 +150,9 @@ export default class RedrowHandler {
    * Удаляет сообщение
    */
   removeMes() {
-    this.mesText.textContent = '';
-    this.mesText.className = 'text';
-    this.mes.className = 'mes d_none';
-    this.input.className = 'input';
+    this.mesText.textContent = "";
+    this.mesText.className = "text";
+    this.mes.className = "mes d_none";
+    this.input.className = "input";
   }
 }

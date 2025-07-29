@@ -1,6 +1,6 @@
-import WidgetStartPage from './WidgetStartPage';
-import RedrowHandler from './RedrowHandler';
-import paySistem from './paySistem';
+import WidgetStartPage from "./WidgetStartPage";
+import RedrowHandler from "./RedrowHandler";
+import paySistem from "./paySistem";
 
 export default class AppController {
   init(container) {

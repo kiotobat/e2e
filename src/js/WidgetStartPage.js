@@ -5,7 +5,7 @@ export default class WidgetStartPage {
 
   bindToDOM(container) {
     if (!(container instanceof HTMLElement)) {
-      throw new Error('Контейнер не является HTMLElement');
+      throw new Error("Контейнер не является HTMLElement");
     }
     this.container = container;
   }
@@ -59,7 +59,7 @@ export default class WidgetStartPage {
 
   checkBinding() {
     if (this.container === null) {
-      throw new Error('Виджет не привязан к DOM');
+      throw new Error("Виджет не привязан к DOM");
     }
   }
 }

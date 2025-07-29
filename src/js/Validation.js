@@ -3,9 +3,9 @@
  */
 export default class Validation {
   constructor(paySistem) {
-    this.regex1 = new RegExp('^[0-9]{14}$');
-    this.regex2 = new RegExp('^[0-9]{15}$');
-    this.regex3 = new RegExp('^[0-9]{16}$');
+    this.regex1 = new RegExp("^[0-9]{14}$");
+    this.regex2 = new RegExp("^[0-9]{15}$");
+    this.regex3 = new RegExp("^[0-9]{16}$");
     this.paySistem = paySistem;
   }
 
@@ -13,7 +13,11 @@ export default class Validation {
    * Проверяет переданную строку на соответствие шаблонам (14, 15 или 16 цифр)
    */
   checkNumLength(value) {
-    return this.regex1.test(value) || this.regex2.test(value) || this.regex3.test(value);
+    return (
+      this.regex1.test(value) ||
+      this.regex2.test(value) ||
+      this.regex3.test(value)
+    );
   }
 
   /**
@@ -23,7 +27,7 @@ export default class Validation {
     let sum = 0;
     let even = false;
     if (value && +value) {
-      this.temp = String(value).replace(/[^\d]/g, '');
+      this.temp = String(value).replace(/[^\d]/g, "");
       for (let i = this.temp.length - 1; i >= 0; i -= 1) {
         let int = parseInt(this.temp.charAt(i), 10);
         if (even) {
@@ -35,7 +39,7 @@ export default class Validation {
         sum += int;
         even = !even;
       }
-      return (sum % 10) === 0;
+      return sum % 10 === 0;
     }
     return false;
   }
@@ -46,7 +50,10 @@ export default class Validation {
   checkPaySystem(value) {
     if (value) {
       this.value = String(value).trim();
-      if (this.paySistem[this.value] && this.value.startsWith(this.paySistem[this.value].starts)) {
+      if (
+        this.paySistem[this.value] &&
+        this.value.startsWith(this.paySistem[this.value].starts)
+      ) {
         return this.paySistem[this.value].name;
       }
     }
