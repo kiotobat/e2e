@@ -9,17 +9,16 @@ branches:
 
 cache: node_modules  # кеширование
 
-install:
-  - yarn  # команда установки зависимостей
+install: # команда установки зависимостей
+  - yarn  
 
 build: off  # отключаем встроенную в appveyor систему сборки
 
-build_script:
-  - yarn build   # команда сборки
+build_script: # команда сборки
+  - yarn build   
 
-test_script:
-  - yarn lint && yarn test
-  - npm test  # скрипт тестирования
+test_script: # скрипт тестирования
+  - yarn lint && yarn test  
 
 deploy_script:  # скрипт развёртывания
   - git config --global credential.helper store

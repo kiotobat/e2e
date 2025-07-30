@@ -6,9 +6,12 @@
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint . --fix",
-    "test": "jest --testPathPattern=./src/ --coverage",
+    "test": "jest --testPathPattern=./src/",
+    "coverage": "jest --coverage",
+    "preshow:coverage": "npm run coverage",
     "show:coverage": "live-server coverage/lcov-report",
-    "show:dist": "live-server dist",
+    "preshow:dist": "npm run build",
+    "show:dist": "http-server dist",
     "e2e": "jest --testPathPattern=./e2e/ --runInBand"
   },
   "repository": {
@@ -44,6 +47,7 @@
     "webpack-merge": "^6.0.1"
   },
   "dependencies": {
-    "core-js": "^3.44.0"
+    "core-js": "^3.44.0",
+    "puppeteer": "^24.15.0"
   }
 }
