@@ -17,6 +17,9 @@
     "preshow:doc": "npm run doc",
     "show:doc": "live-server doc"
   },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kiotobat/e2e.git"
@@ -31,6 +34,7 @@
     "@types/jest": "^30.0.0",
     "babel-jest": "^30.0.4",
     "babel-loader": "^10.0.0",
+    "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.2",
     "eslint": "^9.32.0",
