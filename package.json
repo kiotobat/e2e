@@ -15,7 +15,8 @@
     "e2e": "jest --testPathPatterns=./e2e/ --runInBand",
     "doc": "jsdoc -c jsdoc.conf.json",
     "preshow:doc": "npm run doc",
-    "show:doc": "live-server doc"
+    "show:doc": "live-server doc",
+    "testEnvironment": "jsdom"
   },
 
   "repository": {
