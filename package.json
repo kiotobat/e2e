@@ -17,9 +17,7 @@
     "preshow:doc": "npm run doc",
     "show:doc": "live-server doc"
   },
-  "jest": {
-    "testEnvironment": "jsdom"
-  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kiotobat/e2e.git"

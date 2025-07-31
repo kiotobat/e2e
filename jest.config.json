@@ -1,4 +1,5 @@
 {
   "coveragePathIgnorePatterns": ["<rootDir>/Task/", "<rootDir>/node_modules/"],
-  "testPathIgnorePatterns": ["<rootDir>/Task/", "<rootDir>/node_modules/"]
+  "testPathIgnorePatterns": ["<rootDir>/Task/", "<rootDir>/node_modules/"],
+  "testEnvironment": "jsdom"
 }
